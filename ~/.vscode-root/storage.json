@@ -1,0 +1,33 @@
+{
+    "telemetry.machineId": "0845e6e4adb1dae90d10e6fc767e511b2877ab1846228c384413f63716ea71d3",
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "pickerWorkingDir": "/home/munam/Desktop/SaasMaterial",
+    "openedPathsList": {
+        "workspaces2": [
+            "file:///home/munam/Desktop/SaasMaterial/saas-helper-admin",
+            "file:///home/munam/Desktop/SSSHelper"
+        ],
+        "files2": []
+    },
+    "windowsState": {
+        "openedWindows": [],
+        "lastActiveWindow": {
+            "folderUri": {
+                "$mid": 1,
+                "fsPath": "/home/munam/Desktop/SaasMaterial/saas-helper-admin",
+                "external": "file:///home/munam/Desktop/SaasMaterial/saas-helper-admin",
+                "path": "/home/munam/Desktop/SaasMaterial/saas-helper-admin",
+                "scheme": "file"
+            },
+            "backupPath": "/home/munam/Desktop/SSSHelper/~/.vscode-root/Backups/e1a48907a2aa734a4ce17476d9e04528",
+            "uiState": {
+                "mode": 0,
+                "x": 51,
+                "y": 24,
+                "width": 1315,
+                "height": 744
+            }
+        }
+    }
+}

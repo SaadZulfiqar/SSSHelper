@@ -32,7 +32,7 @@ const MaterialAppBar = () => {
           <Typography variant="h6" className={classes.title}>
             Serveys
           </Typography>
-          <Button color="inherit">Create Servey</Button>
+          <Button color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </div>

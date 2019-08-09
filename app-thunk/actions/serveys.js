@@ -14,7 +14,7 @@ export const fetchServeysPending = () => {
     }
 }
 
-export const fetchServeysSuccess = () => {
+export const fetchServeysSuccess = (serveys) => {
     return {
         type: FETCH_SERVEYS_SUCCESS,
         payload: serveys

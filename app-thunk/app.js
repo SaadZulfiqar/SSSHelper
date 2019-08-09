@@ -6,21 +6,23 @@ import thunk from 'redux-thunk';
 import allReducers from './reducers/index';
 import { ConnectedRouter } from 'connected-react-router';
 import history from './utils/history';
-import Routes from './routes';
+import AdminContainer from './containers/Admin';
+
+// Import CSS reset and Global Styles
+import './styles/theme.scss';
 
 const middlewares = [thunk];
 const store = createStore(allReducers, applyMiddleware(...middlewares));
 store.subscribe(() => { console.log('store changes', store.getState()); });
 
-const MOUNT_NODE = document.getElementById('app');
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Routes />
+        <AdminContainer />
       </ConnectedRouter>
     </Provider>,
-    MOUNT_NODE
+    document.getElementById('app')
   );
 };
 render();

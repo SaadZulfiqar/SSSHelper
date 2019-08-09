@@ -7,10 +7,12 @@ import Button from '@material-ui/core/Button';
 import ServeyDialogComponent from './ServeryDialog';
 import { fetchServeys, submitServey, toggleServeyDialog } from '../../services/serveys';
 import { getServeysPending, getServeys, getServeysError, getToggleServeyDialog } from '../../reducers/serveys';
+import ProgressComponent from '../Progress';
 
 const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(1),
+        float: "right"
     }
 }));
 
@@ -35,16 +37,31 @@ class ServeyComponent extends Component {
         super(props);
     }
 
+    componentWillMount = () => {
+        this.props.fetchServeys();
+    };
     onToggleDialog = () => this.props.toggleServeyDialog(!this.props.openDialog);
     onCreateServey = (servey) => this.props.submitServey({ Id: new Date().getMilliseconds(), Title: servey.title, Description: servey.description });;
 
     render() {
         console.log('############# SERVEYS ################');
-        console.log(this.props);
+
+        const { serveys, pending } = this.props;
+        console.log(serveys);
         return (
             <div>
+                <ProgressComponent pending={pending} />
                 <MaterialButton onToggleDialog={this.onToggleDialog} />
-                <ServeyDialogComponent {...this.props} onToggleDialog={this.onToggleDialog} onCreateServey={this.onCreateServey} />                
+                {
+                    serveys.map((servey, index) => {
+                        return (
+                            <span>
+                                <label key={index}>{servey.Title}</label>
+                                <br />
+                            </span>);
+                    })
+                }
+                <ServeyDialogComponent {...this.props} onToggleDialog={this.onToggleDialog} onCreateServey={this.onCreateServey} />
             </div>
         );
     }

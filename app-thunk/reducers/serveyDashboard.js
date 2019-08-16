@@ -2,7 +2,7 @@ import { FETCH_SERVEY_PENDING, FETCH_SERVEY_SUCCESS, FETCH_SERVEY_ERROR } from '
 
 const initialState = {
     pending: false,
-    servey: {},
+    survey: {},
     error: null,
     toggleServeyDialog: false
 }
@@ -18,7 +18,7 @@ export function serveyDashboardReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                servey: action.payload
+                survey: action.payload
             }
         case FETCH_SERVEY_ERROR:
             return {
@@ -32,6 +32,6 @@ export function serveyDashboardReducer(state = initialState, action) {
     }
 }
 
-export const getServey = state => state.serveys.servey;
-export const getServeyPending = state => state.serveys.pending;
-export const getServeyError = state => state.serveys.error;
+export const getServey = state => state.serveyDashboard.survey;
+export const getServeyPending = state => state.serveyDashboard.pending;
+export const getServeyError = state => state.serveyDashboard.error;

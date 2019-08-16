@@ -9,10 +9,10 @@ export const fetchServeyPending = () => {
     }
 }
 
-export const fetchServeySuccess = (servey) => {
+export const fetchServeySuccess = (survey) => {
     return {
         type: FETCH_SERVEY_SUCCESS,
-        payload: servey
+        payload: survey
     }
 }
 

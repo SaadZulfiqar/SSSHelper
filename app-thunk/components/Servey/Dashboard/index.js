@@ -49,8 +49,7 @@ function a11yProps(index) {
 
 const MaterialTabs = (data) => {
     const classes = useStyles();
-    const { tab, onTabChange } = data;
-    const value = 0;
+    const { servey, tab, onTabChange } = data;
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -60,7 +59,7 @@ const MaterialTabs = (data) => {
                 </Tabs>
             </AppBar>
             <TabPanel value={tab} index={0}>
-                <QuestionsComponent />
+                <QuestionsComponent Questions={servey.Questions} />
             </TabPanel>
             <TabPanel value={tab} index={1}>
                 <ConfigurationsComponent />
@@ -89,7 +88,6 @@ class DashboardComponent extends Component {
     onTabChange = (event, newValue) => this.setState({ tab: newValue });
 
     render() {
-        const { Questions } = this.props;
         return (
             <div className="admin-servey-dashboard">
                 <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} />

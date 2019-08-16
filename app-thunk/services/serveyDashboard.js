@@ -1,6 +1,6 @@
 
 import * as action from '../actions/serveyDashboard';
-const servey = {
+const survey = {
     Questions: [
         {
             "ElementType": "Type",
@@ -14,14 +14,14 @@ const servey = {
             "Options":
                 [
                     {
-                        "Options": "Test",
+                        "Options": "This is option 1",
                         "Sequence": "test",
                         "Enabled": "1",
                         "CreatedBy": "1",
                         "UpdatedBy": "1"
                     },
                     {
-                        "Options": "Options12",
+                        "Options": "This is option 2",
                         "Sequence": "Sequence3",
                         "Enabled": "1",
                         "CreatedBy": "1",
@@ -37,6 +37,20 @@ const servey = {
             "UpdatedBy": "1",
             "Options":
                 [
+                    {
+                        "Options": "This is option 1",
+                        "Sequence": "test",
+                        "Enabled": "1",
+                        "CreatedBy": "1",
+                        "UpdatedBy": "1"
+                    },
+                    {
+                        "Options": "This is option 2",
+                        "Sequence": "Sequence3",
+                        "Enabled": "1",
+                        "CreatedBy": "1",
+                        "UpdatedBy": "1"
+                    }
                 ]
         }
     ]
@@ -48,7 +62,7 @@ export const fetchServey = (id) => {
         dispatch(action.fetchServeyPending());
         // mimicking service
         setTimeout(function () {
-            dispatch(action.fetchServeySuccess(servey));           
+            dispatch(action.fetchServeySuccess(survey));
         }, 1000);
 
         // fetch('https://exampleapi.com/products')

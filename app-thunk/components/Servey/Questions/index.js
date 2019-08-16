@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
     textField: {
@@ -22,15 +25,11 @@ const useStyles = makeStyles(theme => ({
     },
     pos: {
         marginBottom: 12,
+    },
+    button: {
+        margin: theme.spacing(1),
     }
 }));
-
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 const MaterialQuestions = (data) => {
     const { index, question } = data;
@@ -56,19 +55,38 @@ const MaterialQuestions = (data) => {
     );
 }
 
+const MaterialAddQuestion = (data) => {
+    const { onAddNewQuestion } = data;
+    const classes = useStyles();
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={onAddNewQuestion}> Add Question </Button>);
+}
+
 export default class QuestionsComponent extends Component {
     static propTypes = {
-        Questions: PropTypes.array
+        Questions: PropTypes.array,
+        onAddNewQuestion: PropTypes.func
+    };
+
+    constructor(props) {
+        super(props);
+    }
+
+    onAddNewQuestion = () => {
+        this.props.onAddNewQuestion();
     };
 
     render() {
         const { Questions } = this.props;
-        console.log(Questions);
         return (
             <div>
-                <form>
-                    {Questions && Questions.map((question, index) => { return <MaterialQuestions key={index} question={question} /> })}
-                </form>
+                <div className="admin-survey-questions-add-new">
+                    <MaterialAddQuestion onAddNewQuestion={this.onAddNewQuestion} />
+                </div>
+                <div className="admin-survey-questions-list">
+                    <form>
+                        {Questions && Questions.map((question, index) => { return <MaterialQuestions key={index} index={index} question={question} /> })}
+                    </form>
+                </div>
             </div>
         );
     }

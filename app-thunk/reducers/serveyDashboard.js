@@ -1,4 +1,5 @@
-import { FETCH_SERVEY_PENDING, FETCH_SERVEY_SUCCESS, FETCH_SERVEY_ERROR } from '../actions/serveyDashboard';
+import _ from 'lodash';
+import { FETCH_SERVEY_PENDING, FETCH_SERVEY_SUCCESS, FETCH_SERVEY_ERROR, ON_ADD_NEW_QUESTION } from '../actions/serveyDashboard';
 
 const initialState = {
     pending: false,
@@ -26,7 +27,13 @@ export function serveyDashboardReducer(state = initialState, action) {
                 pending: false,
                 error: action.error
             }
-
+        case ON_ADD_NEW_QUESTION:
+            const survey = _.cloneDeep(state.survey);
+            survey.Questions = survey.Questions.concat(action.payload);
+            return {
+                ...state,
+                survey: survey
+            }
         default:
             return state;
     }

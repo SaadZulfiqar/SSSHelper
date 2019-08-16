@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchServey } from '../../../services/serveyDashboard';
+import { fetchServey, onAddNewQuestion } from '../../../services/serveyDashboard';
 import { getServeyPending, getServey, getServeyError } from '../../../reducers/serveyDashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -49,7 +49,7 @@ function a11yProps(index) {
 
 const MaterialTabs = (data) => {
     const classes = useStyles();
-    const { servey, tab, onTabChange } = data;
+    const { survey, tab, onTabChange, onAddNewQuestion } = data;
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -59,7 +59,7 @@ const MaterialTabs = (data) => {
                 </Tabs>
             </AppBar>
             <TabPanel value={tab} index={0}>
-                <QuestionsComponent Questions={servey.Questions} />
+                <QuestionsComponent Questions={survey.Questions} onAddNewQuestion={onAddNewQuestion} />
             </TabPanel>
             <TabPanel value={tab} index={1}>
                 <ConfigurationsComponent />
@@ -86,11 +86,11 @@ class DashboardComponent extends Component {
     }
 
     onTabChange = (event, newValue) => this.setState({ tab: newValue });
-
+    onAddNewQuestion = () => this.props.onAddNewQuestion(this.props.survey);
     render() {
         return (
             <div className="admin-servey-dashboard">
-                <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} />
+                <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} onAddNewQuestion={this.onAddNewQuestion} />
             </div>
         );
     }
@@ -99,12 +99,13 @@ class DashboardComponent extends Component {
 
 const mapStateToProps = state => ({
     error: getServeyError(state),
-    servey: getServey(state),
+    survey: getServey(state),
     pending: getServeyPending(state)
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchServey: fetchServey
+    fetchServey: fetchServey,
+    onAddNewQuestion: onAddNewQuestion
 }, dispatch)
 
 export default connect(

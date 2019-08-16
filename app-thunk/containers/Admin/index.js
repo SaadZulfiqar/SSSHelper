@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBarComponent from '../../components/AppBar';
 import NavigationComponent from '../../components/Navigation';
 import ServeyComponent from '../../components/Servey';
-import NotFound from '../NotFound';
+import DashboardComponent from '../../components/Servey/Dashboard';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 
@@ -37,12 +37,17 @@ const useStyles = makeStyles(theme => ({
 
 const MaterialComponent = (data) => {
   const classes = useStyles();
-  const { toggleNavigation } =  data;
+  const { toggleNavigation } = data;
   return (
     <div className={`${clsx(classes.content, { [classes.contentShift]: toggleNavigation })} admin-content `}>
       <div className={classes.drawerHeader} />
-      <ServeyComponent />
-
+      <Router>
+        <Switch>
+          <Route path="/" exact component={ServeyComponent} />
+          <Route path="/surveys" exact component={ServeyComponent} />
+          <Route path="/survey/:Id"  component={DashboardComponent} />
+        </Switch>
+      </Router>
     </div>
   );
 };
@@ -53,25 +58,18 @@ export default class AdminContainer extends Component {
     this.state = { toggleNavigation: true };
   }
   onToggleNavigation = () => {
-
     const { toggleNavigation } = this.state;
-    console.log(toggleNavigation);
     this.setState({ toggleNavigation: !toggleNavigation });
   };
 
   render() {
     const { toggleNavigation } = this.state;
-  
     return (
       <div className="admin-wrapper">
         <CssBaseline />
         <AppBarComponent toggleNavigation={toggleNavigation} onToggleNavigation={this.onToggleNavigation} />
         <NavigationComponent toggleNavigation={toggleNavigation} onToggleNavigation={this.onToggleNavigation} />
         <MaterialComponent toggleNavigation={toggleNavigation} />
-        <Switch>
-          <Route path="/create" component={NotFound} />
-          <Route path="/edit" component={NotFound} />
-        </Switch>
       </div>
     );
   }

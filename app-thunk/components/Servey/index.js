@@ -12,6 +12,7 @@ import ServeyDialogComponent from './ServeryDialog';
 import { fetchServeys, submitServey, toggleServeyDialog } from '../../services/serveys';
 import { getServeysPending, getServeys, getServeysError, getToggleServeyDialog } from '../../reducers/serveys';
 import ProgressComponent from '../Progress';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -27,8 +28,8 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             boxShadow: '0 0 50px 0 rgba(0,0,0,.35)'
         }
-      },
-      addsurveycard: {
+    },
+    addsurveycard: {
         minWidth: 250,
         width: 250,
         float: 'left',
@@ -41,83 +42,54 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             boxShadow: '0 0 50px 0 rgba(0,0,0,.35)'
         }
-      },
-      bullet: {
+    },
+    bullet: {
         display: 'inline-block',
         margin: '0 2px',
         transform: 'scale(0.8)',
-      },
-      title: {
+    },
+    title: {
         color: '#32b65a'
-      },
-      description: {
+    },
+    description: {
         fontSize: 14,
-      },
-      pos: {
+    },
+    pos: {
         marginBottom: 12,
-      },
+    },
 }));
 
-function CreateSurveyCard() {
+function CreateSurveyCard(data) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
-  
+    const { onToggleDialog } = data;
     return (
-      <Card className={classes.addsurveycard}>
-        <CardContent>
-          {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Word of the Day
-          </Typography>
-          <Typography variant="h5" component="h2">
-            be
-            {bull}
-            nev
-            {bull}o{bull}
-            lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography> */}
-          <Typography color="textSecondary">
-            Add Survey
-          </Typography>
-        </CardContent>
-      </Card>
+        <Card className={classes.addsurveycard}>
+            <CardContent>
+                <MaterialButton onToggleDialog={onToggleDialog} />
+            </CardContent>
+        </Card>
     );
 }
 
 function SurveyCard(props) {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-    console.log(props.survey)
     const survey = props.survey;
     return (
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="h5" component="h2" className={classes.title}>
-            {survey.Title}
-          </Typography>
-          <Typography className={classes.description} color="textSecondary" gutterBottom>
-            {survey.Description}
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+        <Card className={classes.card}>
+            <CardContent>
+                <Typography variant="h5" component="h2" className={classes.title}>
+                    {survey.Title}
+                </Typography>
+                <Typography className={classes.description} color="textSecondary" gutterBottom>
+                    {survey.Description}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">Learn More</Button>
+                <Link to={`/survey/${survey.Id}`}>Edit</Link>
+            </CardActions>
+        </Card>
     );
 }
 
@@ -138,38 +110,23 @@ class ServeyComponent extends Component {
         openDialog: PropTypes.bool,
         getToggleServeyDialog: PropTypes.func
     };
+
     constructor(props) {
         super(props);
     }
 
-    componentWillMount = () => {
-        this.props.fetchServeys();
-    };
+    componentWillMount = () => { this.props.fetchServeys(); };
     onToggleDialog = () => this.props.toggleServeyDialog(!this.props.openDialog);
-    onCreateServey = (servey) => this.props.submitServey({ Id: new Date().getMilliseconds(), Title: servey.title, Description: servey.description });;
+    onCreateServey = (servey) => this.props.submitServey({ Id: new Date().getMilliseconds(), Title: servey.title, Description: servey.description });
 
     render() {
-        console.log('############# SERVEYS ################');
-
-        const { serveys, pending } = this.props;
-        console.log(serveys);
+        const { serveys, pending, openDialog } = this.props;
         return (
             <div>
-                <ProgressComponent pending={pending} />
-                <MaterialButton onToggleDialog={this.onToggleDialog} />
-                <CreateSurveyCard />
-                {
-                    serveys.map((servey, index) => {
-                        return (
-                            // <span>
-                            //     <label key={index}>{servey.Title}</label>
-                            //     <br />
-                            // </span>
-                            <SurveyCard survey={servey} />
-                        );
-                    })
-                }
-                <ServeyDialogComponent {...this.props} onToggleDialog={this.onToggleDialog} onCreateServey={this.onCreateServey} />
+                <CreateSurveyCard onToggleDialog={this.onToggleDialog} />
+                {serveys.map((servey, index) => { return (<SurveyCard key={index} survey={servey} />); })}
+                {openDialog && <ServeyDialogComponent {...this.props} onToggleDialog={this.onToggleDialog} onCreateServey={this.onCreateServey} />}
+                {pending && <ProgressComponent pending={pending && !openDialog} />}
             </div>
         );
     }

@@ -59,7 +59,4 @@ export function serveysReducer(state = initialState, action) {
 export const getServeys = state => state.serveys.serveys;
 export const getServeysPending = state => state.serveys.pending;
 export const getServeysError = state => state.serveys.error;
-export const getToggleServeyDialog = state => {
-    console.log(state);
-    return state.serveys.toggleServeyDialog
-} ;
+export const getToggleServeyDialog = state => state.serveys.toggleServeyDialog;

@@ -6,6 +6,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import SquareEditOutline from '@material-ui/icons/EditOutlined';
+import PlayArrow from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
+import AnswersIcon from '@material-ui/icons/BarChart';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -29,6 +34,9 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             boxShadow: '0 0 50px 0 rgba(0,0,0,.35)'
         }
+    },
+    cardbody: {
+        height: '85%'
     },
     addsurveycard: {
         minWidth: 250,
@@ -58,6 +66,16 @@ const useStyles = makeStyles(theme => ({
     pos: {
         marginBottom: 12,
     },
+    icon: {
+        margin: theme.spacing(1),
+        fontSize: 20,
+    },
+    cardactions: {
+        textAlign: 'center',
+        padding: 0,
+        display: 'block',
+        alignItems: 'center'
+    },
 }));
 
 function CreateSurveyCard(data) {
@@ -78,19 +96,25 @@ function SurveyCard(props) {
     const survey = props.survey;
     return (
         <Card className={classes.card}>
-            <CardContent>
-                <Typography variant="h5" component="h2" className={classes.title}>
-                    {survey.Title}
-                </Typography>
-                <Typography className={classes.description} color="textSecondary" gutterBottom>
-                    {survey.Description}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-                <Link to={`/survey/${survey.Id}`}>Edit</Link>
-            </CardActions>
+            <div className={classes.cardbody}>
+                <CardContent>
+                    <Typography variant="h5" component="h2" className={classes.title}>
+                        {survey.Title}
+                    </Typography>
+                    <Typography className={classes.description} color="textSecondary" gutterBottom>
+                        {survey.Description}
+                    </Typography>
+                </CardContent>
+            </div>
             <Divider />
+            <CardActions className={classes.cardactions}>
+                {/* <Button size="small">Learn More</Button> */}
+                <Link to={`/survey/${survey.Id}`}><PlayArrow className={classes.icon} /></Link>
+                <Link to={`/survey/${survey.Id}`}><PauseIcon className={classes.icon} /></Link>
+                <Link to={`/survey/${survey.Id}`}><AnswersIcon className={classes.icon} /></Link>
+                <Link to={`/survey/${survey.Id}`}><SquareEditOutline className={classes.icon} /></Link>
+                <Link to={`/survey/${survey.Id}`}><DeleteOutlinedIcon className={classes.icon} /></Link>
+            </CardActions>
         </Card>
     );
 }

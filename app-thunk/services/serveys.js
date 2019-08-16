@@ -37,11 +37,10 @@ const serveys = [
 export const fetchServeys = () => {
     return dispatch => {
         dispatch(action.fetchServeysPending());
-
         // mimicking service
         setTimeout(function () {
             dispatch(action.fetchServeysSuccess(serveys));           
-        }, 3000);
+        }, 1000);
 
         // fetch('https://exampleapi.com/products')
         // .then(res => res.json())
@@ -65,7 +64,7 @@ export const submitServey = (servey) => {
         // mimicking service
         setTimeout(function () {
             dispatch(action.submitServeySuccess(servey));           
-        }, 3000);
+        }, 2000);
 
         // fetch('https://exampleapi.com/products')
         // .then(res => res.json())

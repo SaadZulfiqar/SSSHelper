@@ -11,7 +11,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import IconButton from '@material-ui/core/IconButton';
 import MailIcon from '@material-ui/icons/Mail';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -61,15 +61,16 @@ const MaterialDrawer = (data) => {
     <div>
       <Drawer open={toggleNavigation} className={classes.drawer} variant="persistent" anchor="left" classes={{ paper: classes.drawerPaper }}>
         <div className={classes.drawerHeader}>
+          <span className="admin-drawer-header">SSS Helper</span>
           <IconButton onClick={onToggleNavigation}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <div className={classes.list} role="presentation" >
           <List>
-            <ListItem button>
+            <ListItem component="a" href="/surveys">
               <ListItemIcon><MailIcon /></ListItemIcon>
-              <ListItemText primary="Serveys" />
+              <ListItemText primary="Surveys" />
             </ListItem>
             <ListItem button>
               <ListItemIcon><MailIcon /></ListItemIcon>
@@ -84,7 +85,6 @@ const MaterialDrawer = (data) => {
             </ListItem>
           </List>
         </div>
-
       </Drawer>
     </div>
 

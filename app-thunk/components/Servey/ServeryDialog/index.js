@@ -76,19 +76,28 @@ export default class ServeyDialogComponent extends Component {
     onToggleDialog: PropTypes.func,
     onCreateServey: PropTypes.func
   };
+  
   constructor(props) {
     super(props);
     this.state = { title: '', description: '' };
   }
+
   onCreateServey = () => {
     this.props.onCreateServey(this.state);
   };
+
   onTitleChange = (event) => {
     this.setState({ title: event.target.value });
   };
+
   onDescriptionChange = (event) => {
     this.setState({ description: event.target.value });
   };
+
+  componentWillMount() {
+    this.setState({ title: '', description: '' });
+  }
+
   render() {
     return (
       <MaterialDialog {...this.props} {...this.state} onTitleChange={this.onTitleChange} onDescriptionChange={this.onDescriptionChange} onCreateServey={this.onCreateServey} />

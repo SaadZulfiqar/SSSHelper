@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
     button: {
         margin: theme.spacing(1),
+        float: "right"
     }
 }));
 
@@ -39,10 +40,11 @@ const MaterialQuestions = (data) => {
             <Card className={classes.card}>
                 <CardContent>
                     <TextField id="question-name" label={`Question ${index + 1}.`} className={classes.textField} value={question.Question} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
-                    {question.Options && question.Options.map((option, index) => {
+                    <MaterialAddQuestionOption />
+                    {question.Options && question.Options.map((option, optionIndex) => {
                         return (
-                            <div key={index}>
-                                <TextField id={`${index}-option-name`} label={`Option ${index + 1}.`} className={classes.textField} value={option.Options} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
+                            <div key={optionIndex}>
+                                <TextField id={`${optionIndex}-option-name`} label={`Option ${optionIndex + 1}.`} className={classes.textField} value={option.Options} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true }} />
                             </div>
                         )
                     })}
@@ -59,6 +61,12 @@ const MaterialAddQuestion = (data) => {
     const { onAddNewQuestion } = data;
     const classes = useStyles();
     return (<Button variant="contained" color="primary" className={classes.button} onClick={onAddNewQuestion}> Add Question </Button>);
+}
+
+const MaterialAddQuestionOption = (data) => {
+    const { onAddNewQuestionOption } = data;
+    const classes = useStyles();
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={onAddNewQuestionOption}> Add Option </Button>);
 }
 
 export default class QuestionsComponent extends Component {

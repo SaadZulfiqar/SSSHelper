@@ -1,0 +1,9 @@
+[Info  - 7:06:57 PM] ESLint server stopped.
+[Info  - 7:06:57 PM] ESLint server running in node v10.11.0
+[Info  - 7:06:57 PM] ESLint server is running.
+[Info  - 7:06:59 PM] ESLint library loaded from: /home/munam/Desktop/SaasMaterial/saas-helper-admin/node_modules/eslint/lib/api.js
+[Warn  - 7:06:59 PM] 
+No ESLint configuration (e.g .eslintrc) found for file: /home/munam/Desktop/SaasMaterial/saas-helper-admin/backend/data/dbConnection.js
+File will not be validated. Consider running 'eslint --init' in the workspace folder saas-helper-admin
+Alternatively you can disable ESLint by executing the 'Disable ESLint' command.
+[Info  - 7:07:19 PM] ESLint server stopped.

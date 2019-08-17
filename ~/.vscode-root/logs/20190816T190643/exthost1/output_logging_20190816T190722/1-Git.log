@@ -1,0 +1,483 @@
+Looking for git in: git
+Using git 2.7.4 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+> git config --get commit.template
+Open repository: /home/munam/Desktop/SSSHelper
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :README.md
+> git check-ignore -v -z --stdin
+> git show :README.md
+> git check-ignore -v -z --stdin
+> git show :app-thunk/components/Navigation/index.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Navigation/index.js
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git show :app-thunk/components/Configurations
+> git ls-files --stage -- app-thunk/components/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/reducers/serveys.js
+> git check-ignore -v -z --stdin
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/containers/Admin/index.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/containers/Admin/index.js
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/services/serveys.js
+> git check-ignore -v -z --stdin
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/services/serveys.js
+> git check-ignore -v -z --stdin
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/serveys.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/serveys.js
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/actions/serveys.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git show :app-thunk/actions/configurations.js
+> git ls-files --stage -- app-thunk/actions/
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/containers/Admin/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Navigation/index.js
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git show :app-thunk/components/Servey/index.js
+> git show :app-thunk/services/serveys.js
+> git show :app-thunk/services/configurations.js
+> git ls-files --stage -- app-thunk/services/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app-thunk/components/Configurations/index.js
+> git ls-files --stage -- app-thunk/components/Configurations/
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose

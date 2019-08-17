@@ -1,0 +1,8 @@
+[2019-08-16 19:06:47.253] [sharedprocess] [info] main {"machineId":"0845e6e4adb1dae90d10e6fc767e511b2877ab1846228c384413f63716ea71d3"}
+[2019-08-16 19:06:50.995] [sharedprocess] [info] Installing extension: dbaeumer.vscode-eslint
+[2019-08-16 19:06:52.988] [sharedprocess] [info] Downloaded extension: dbaeumer.vscode-eslint /tmp/5136a381-f953-448a-acb0-51e9cb643c0c
+[2019-08-16 19:06:53.028] [sharedprocess] [info] Extracted extension to /home/munam/.vscode/extensions/.dbaeumer.vscode-eslint-1.9.0: dbaeumer.vscode-eslint
+[2019-08-16 19:06:53.029] [sharedprocess] [info] Renamed to /home/munam/.vscode/extensions/dbaeumer.vscode-eslint-1.9.0
+[2019-08-16 19:06:53.030] [sharedprocess] [info] Installation completed. dbaeumer.vscode-eslint
+[2019-08-16 19:06:53.041] [sharedprocess] [info] Extensions installed successfully: dbaeumer.vscode-eslint
+[2019-08-16 19:07:27.216] [sharedprocess] [info] Starting to clean up unused language packs.

@@ -66,13 +66,13 @@ const MaterialDrawer = (data) => {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <div className={classes.list} role="presentation" >
+        <div className={classes.list} role="presentation">
           <List>
             <ListItem component="a" href="/surveys">
               <ListItemIcon><MailIcon /></ListItemIcon>
               <ListItemText primary="Surveys" />
             </ListItem>
-            <ListItem button>
+            <ListItem component="a" href="/configurations">
               <ListItemIcon><MailIcon /></ListItemIcon>
               <ListItemText primary="Configurations" />
             </ListItem>
@@ -89,7 +89,7 @@ const MaterialDrawer = (data) => {
     </div>
 
   );
-}
+};
 
 export default class DrawerComponent extends Component {
   static propTypes = {

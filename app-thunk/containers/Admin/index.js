@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBarComponent from '../../components/AppBar';
 import NavigationComponent from '../../components/Navigation';
 import ServeyComponent from '../../components/Servey';
+import ConfigurationsComponent from '../../components/Configurations';
 import DashboardComponent from '../../components/Servey/Dashboard';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -45,6 +46,7 @@ const MaterialComponent = (data) => {
         <Switch>
           <Route path="/" exact component={ServeyComponent} />
           <Route path="/surveys" exact component={ServeyComponent} />
+          <Route path="/configurations" exact component={ConfigurationsComponent} />
           <Route path="/survey/:Id"  component={DashboardComponent} />
         </Switch>
       </Router>

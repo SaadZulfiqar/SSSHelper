@@ -107,6 +107,14 @@ const question = {
         ]
 };
 
+const option = {
+    "Options": "Hey there !!!!!!! 1",
+    "Sequence": "test",
+    "Enabled": "1",
+    "CreatedBy": "1",
+    "UpdatedBy": "1"
+};
+
 
 export const fetchServey = (id) => {
     return dispatch => {
@@ -134,5 +142,14 @@ export const fetchServey = (id) => {
 export const onAddNewQuestion = () => {
     return dispatch => {
         dispatch(action.onAddNewQuestion(question));
+    }
+};
+
+export const onAddNewQuestionOption = (questionIndex) => {
+    return dispatch => {
+        dispatch(action.onAddNewQuestionOption({
+            questionIndex, 
+            option
+        }));
     }
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchServey, onAddNewQuestion } from '../../../services/serveyDashboard';
+import { fetchServey, onAddNewQuestion, onAddNewQuestionOption } from '../../../services/serveyDashboard';
 import { getServeyPending, getServey, getServeyError } from '../../../reducers/serveyDashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -49,7 +49,7 @@ function a11yProps(index) {
 
 const MaterialTabs = (data) => {
     const classes = useStyles();
-    const { survey, tab, onTabChange, onAddNewQuestion } = data;
+    const { survey, tab, onTabChange, onAddNewQuestion, onAddNewQuestionOption } = data;
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -59,7 +59,7 @@ const MaterialTabs = (data) => {
                 </Tabs>
             </AppBar>
             <TabPanel value={tab} index={0}>
-                <QuestionsComponent Questions={survey.Questions} onAddNewQuestion={onAddNewQuestion} />
+                <QuestionsComponent Questions={survey.Questions} onAddNewQuestion={onAddNewQuestion} onAddNewQuestionOption={onAddNewQuestionOption} />
             </TabPanel>
             <TabPanel value={tab} index={1}>
                 <ConfigurationsComponent />
@@ -87,10 +87,11 @@ class DashboardComponent extends Component {
 
     onTabChange = (event, newValue) => this.setState({ tab: newValue });
     onAddNewQuestion = () => this.props.onAddNewQuestion();
+    onAddNewQuestionOption = (questionIndex) => this.props.onAddNewQuestionOption(questionIndex);
     render() {
         return (
             <div className="admin-servey-dashboard">
-                <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} onAddNewQuestion={this.onAddNewQuestion} />
+                <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} onAddNewQuestion={this.onAddNewQuestion} onAddNewQuestionOption={this.onAddNewQuestionOption} />
             </div>
         );
     }
@@ -105,7 +106,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchServey: fetchServey,
-    onAddNewQuestion: onAddNewQuestion
+    onAddNewQuestion: onAddNewQuestion,
+    onAddNewQuestionOption: onAddNewQuestionOption
 }, dispatch)
 
 export default connect(

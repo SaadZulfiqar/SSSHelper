@@ -33,14 +33,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MaterialQuestions = (data) => {
-    const { index, question } = data;
+    const { questionIndex, question, onAddNewQuestionOption } = data;
     const classes = useStyles();
     return (
         <div className="admin-survey-questions-card-wrapper">
             <Card className={classes.card}>
                 <CardContent>
-                    <TextField id="question-name" label={`Question ${index + 1}.`} className={classes.textField} value={question.Question} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
-                    <MaterialAddQuestionOption />
+                    <TextField id="question-name" label={`Question ${questionIndex + 1}.`} className={classes.textField} value={question.Question} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
+                    <MaterialAddQuestionOption questionIndex={questionIndex} onAddNewQuestionOption={onAddNewQuestionOption} />
                     {question.Options && question.Options.map((option, optionIndex) => {
                         return (
                             <div key={optionIndex}>
@@ -64,15 +64,16 @@ const MaterialAddQuestion = (data) => {
 }
 
 const MaterialAddQuestionOption = (data) => {
-    const { onAddNewQuestionOption } = data;
+    const { questionIndex, onAddNewQuestionOption } = data;
     const classes = useStyles();
-    return (<Button variant="contained" color="primary" className={classes.button} onClick={onAddNewQuestionOption}> Add Option </Button>);
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={() => onAddNewQuestionOption(questionIndex) }> Add Option </Button>);
 }
 
 export default class QuestionsComponent extends Component {
     static propTypes = {
         Questions: PropTypes.array,
-        onAddNewQuestion: PropTypes.func
+        onAddNewQuestion: PropTypes.func,
+        onAddNewQuestionOption: PropTypes.func
     };
 
     constructor(props) {
@@ -83,9 +84,12 @@ export default class QuestionsComponent extends Component {
         this.props.onAddNewQuestion();
     };
 
+    onAddNewQuestionOption = (questionIndex) => {
+        this.props.onAddNewQuestionOption(questionIndex);
+    }
+
     render() {
         const { Questions } = this.props;
-        console.log(Questions);
         return (
             <div>
                 <div className="admin-survey-questions-add-new">
@@ -93,7 +97,7 @@ export default class QuestionsComponent extends Component {
                 </div>
                 <div className="admin-survey-questions-list">
                     <form>
-                        {Questions && Questions.map((question, index) => { return <MaterialQuestions key={index} index={index} question={question} /> })}
+                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions key={questionIndex} questionIndex={questionIndex} question={question} onAddNewQuestionOption={this.onAddNewQuestionOption} /> })}
                     </form>
                 </div>
             </div>

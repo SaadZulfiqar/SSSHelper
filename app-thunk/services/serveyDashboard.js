@@ -153,3 +153,10 @@ export const onAddNewQuestionOption = (questionIndex) => {
         }));
     }
 };
+
+export const onChangeQuestion = (data) => {
+    return dispatch => {
+        dispatch(action.onChangeQuestion(data));
+    }
+};
+

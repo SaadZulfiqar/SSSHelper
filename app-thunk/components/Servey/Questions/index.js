@@ -33,13 +33,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MaterialQuestions = (data) => {
-    const { questionIndex, question, onAddNewQuestionOption } = data;
+    const { questionIndex, question, onAddNewQuestionOption, onChangeQuestion } = data;
     const classes = useStyles();
     return (
         <div className="admin-survey-questions-card-wrapper">
             <Card className={classes.card}>
                 <CardContent>
-                    <TextField id="question-name" label={`Question ${questionIndex + 1}.`} className={classes.textField} value={question.Question} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
+                    <TextField id="question-name" label={`Question ${questionIndex + 1}.`} className={classes.textField} value={question.Question} onChange={(event) => { onChangeQuestion(event, questionIndex) }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
                     <MaterialAddQuestionOption questionIndex={questionIndex} onAddNewQuestionOption={onAddNewQuestionOption} />
                     {question.Options && question.Options.map((option, optionIndex) => {
                         return (
@@ -66,14 +66,15 @@ const MaterialAddQuestion = (data) => {
 const MaterialAddQuestionOption = (data) => {
     const { questionIndex, onAddNewQuestionOption } = data;
     const classes = useStyles();
-    return (<Button variant="contained" color="primary" className={classes.button} onClick={() => onAddNewQuestionOption(questionIndex) }> Add Option </Button>);
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={() => onAddNewQuestionOption(questionIndex)}> Add Option </Button>);
 }
 
 export default class QuestionsComponent extends Component {
     static propTypes = {
         Questions: PropTypes.array,
         onAddNewQuestion: PropTypes.func,
-        onAddNewQuestionOption: PropTypes.func
+        onAddNewQuestionOption: PropTypes.func,
+        onChangeQuestion: PropTypes.func
     };
 
     constructor(props) {
@@ -88,6 +89,11 @@ export default class QuestionsComponent extends Component {
         this.props.onAddNewQuestionOption(questionIndex);
     }
 
+    onChangeQuestion = (event, questionIndex) => {
+        const value = event.target.value;
+        this.props.onChangeQuestion({ questionIndex, value });
+    }
+
     render() {
         const { Questions } = this.props;
         return (
@@ -97,7 +103,7 @@ export default class QuestionsComponent extends Component {
                 </div>
                 <div className="admin-survey-questions-list">
                     <form>
-                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions key={questionIndex} questionIndex={questionIndex} question={question} onAddNewQuestionOption={this.onAddNewQuestionOption} /> })}
+                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions key={questionIndex} questionIndex={questionIndex} question={question} onAddNewQuestionOption={this.onAddNewQuestionOption} onChangeQuestion={this.onChangeQuestion} /> })}
                     </form>
                 </div>
             </div>

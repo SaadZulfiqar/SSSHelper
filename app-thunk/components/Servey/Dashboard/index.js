@@ -86,7 +86,7 @@ class DashboardComponent extends Component {
     }
 
     onTabChange = (event, newValue) => this.setState({ tab: newValue });
-    onAddNewQuestion = () => this.props.onAddNewQuestion(this.props.survey);
+    onAddNewQuestion = () => this.props.onAddNewQuestion();
     render() {
         return (
             <div className="admin-servey-dashboard">

@@ -29,7 +29,7 @@ export function serveyDashboardReducer(state = initialState, action) {
             }
         case ON_ADD_NEW_QUESTION:
             const survey = _.cloneDeep(state.survey);
-            survey.Questions = survey.Questions.concat(action.payload);
+            survey.Questions.unshift(action.payload);
             return {
                 ...state,
                 survey: survey

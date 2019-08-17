@@ -77,6 +77,7 @@ export default class QuestionsComponent extends Component {
 
     render() {
         const { Questions } = this.props;
+        console.log(Questions);
         return (
             <div>
                 <div className="admin-survey-questions-add-new">

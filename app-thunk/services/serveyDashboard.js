@@ -82,7 +82,7 @@ const survey = {
 }
 
 const question = {
-    "Question": "B",
+    "Question": "Hey there !!!!!!!",
     "SurveyId": "1",
     "Comments": "",
     "Enabled": "1",
@@ -91,14 +91,14 @@ const question = {
     "Options":
         [
             {
-                "Options": "This is option 1",
+                "Options": "Hey there !!!!!!! 1",
                 "Sequence": "test",
                 "Enabled": "1",
                 "CreatedBy": "1",
                 "UpdatedBy": "1"
             },
             {
-                "Options": "This is option 2",
+                "Options": "Hey there !!!!!!! 2",
                 "Sequence": "Sequence3",
                 "Enabled": "1",
                 "CreatedBy": "1",
@@ -131,8 +131,8 @@ export const fetchServey = (id) => {
     }
 }
 
-export const onAddNewQuestion = (survey) => {
+export const onAddNewQuestion = () => {
     return dispatch => {
-        dispatch(action.onAddNewQuestion(survey));
+        dispatch(action.onAddNewQuestion(question));
     }
 };

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
     textField: {
@@ -22,28 +25,26 @@ const useStyles = makeStyles(theme => ({
     },
     pos: {
         marginBottom: 12,
+    },
+    button: {
+        margin: theme.spacing(1),
+        float: "right"
     }
 }));
 
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
 const MaterialQuestions = (data) => {
-    const { index, question } = data;
+    const { questionIndex, question, onAddNewQuestionOption, onChangeQuestion, onChangeQuestionOption } = data;
     const classes = useStyles();
     return (
         <div className="admin-survey-questions-card-wrapper">
             <Card className={classes.card}>
                 <CardContent>
-                    <TextField id="question-name" label={`Question ${index + 1}.`} className={classes.textField} value={question.Question} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
-                    {question.Options && question.Options.map((option, index) => {
+                    <TextField id="question-name" label={`Question ${questionIndex + 1}.`} className={classes.textField} value={question.Question} onChange={(event) => { onChangeQuestion(event, questionIndex) }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
+                    <MaterialAddQuestionOption questionIndex={questionIndex} onAddNewQuestionOption={onAddNewQuestionOption} />
+                    {question.Options && question.Options.map((option, optionIndex) => {
                         return (
-                            <div key={index}>
-                                <TextField id={`${index}-option-name`} label={`Option ${index + 1}.`} className={classes.textField} value={option.Options} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true, }} />
+                            <div key={optionIndex}>
+                                <TextField id={`${optionIndex}-option-name`} label={`Option ${optionIndex + 1}.`} className={classes.textField} value={option.Options} onChange={(event) => { onChangeQuestionOption(event, questionIndex, optionIndex) }} margin="normal" fullWidth InputLabelProps={{ shrink: true }} />
                             </div>
                         )
                     })}
@@ -56,19 +57,67 @@ const MaterialQuestions = (data) => {
     );
 }
 
+const MaterialAddQuestion = (data) => {
+    const { onAddNewQuestion } = data;
+    const classes = useStyles();
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={onAddNewQuestion}> Add Question </Button>);
+}
+
+const MaterialAddQuestionOption = (data) => {
+    const { questionIndex, onAddNewQuestionOption } = data;
+    const classes = useStyles();
+    return (<Button variant="contained" color="primary" className={classes.button} onClick={() => onAddNewQuestionOption(questionIndex)}> Add Option </Button>);
+}
+
 export default class QuestionsComponent extends Component {
     static propTypes = {
-        Questions: PropTypes.array
+        Questions: PropTypes.array,
+        onAddNewQuestion: PropTypes.func,
+        onAddNewQuestionOption: PropTypes.func,
+        onChangeQuestion: PropTypes.func,
+        onChangeQuestionOption: PropTypes.func
     };
+
+    constructor(props) {
+        super(props);
+    }
+
+    onAddNewQuestion = () => {
+        this.props.onAddNewQuestion();
+    };
+
+    onAddNewQuestionOption = (questionIndex) => {
+        this.props.onAddNewQuestionOption(questionIndex);
+    }
+
+    onChangeQuestion = (event, questionIndex) => {
+        const value = event.target.value;
+        this.props.onChangeQuestion({ questionIndex, value });
+    }
+
+    onChangeQuestionOption = (event, questionIndex, optionIndex) => {
+        const value = event.target.value;
+        this.props.onChangeQuestionOption({ questionIndex, optionIndex, value });
+    }
 
     render() {
         const { Questions } = this.props;
-        console.log(Questions);
         return (
             <div>
-                <form>
-                    {Questions && Questions.map((question, index) => { return <MaterialQuestions key={index} question={question} /> })}
-                </form>
+                <div className="admin-survey-questions-add-new">
+                    <MaterialAddQuestion onAddNewQuestion={this.onAddNewQuestion} />
+                </div>
+                <div className="admin-survey-questions-list">
+                    <form>
+                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions 
+                            key={questionIndex} 
+                            questionIndex={questionIndex} 
+                            question={question} 
+                            onAddNewQuestionOption={this.onAddNewQuestionOption} 
+                            onChangeQuestion={this.onChangeQuestion}
+                            onChangeQuestionOption={this.onChangeQuestionOption} /> })}
+                    </form>
+                </div>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 
 import * as action from '../actions/serveyDashboard';
+
 const survey = {
     Questions: [
         {
@@ -52,9 +53,67 @@ const survey = {
                         "UpdatedBy": "1"
                     }
                 ]
+        }, {
+            "Question": "B",
+            "SurveyId": "1",
+            "Comments": "",
+            "Enabled": "1",
+            "Sequence": "",
+            "UpdatedBy": "1",
+            "Options":
+                [
+                    {
+                        "Options": "This is option 1",
+                        "Sequence": "test",
+                        "Enabled": "1",
+                        "CreatedBy": "1",
+                        "UpdatedBy": "1"
+                    },
+                    {
+                        "Options": "This is option 2",
+                        "Sequence": "Sequence3",
+                        "Enabled": "1",
+                        "CreatedBy": "1",
+                        "UpdatedBy": "1"
+                    }
+                ]
         }
     ]
 }
+
+const question = {
+    "Question": "Hey there !!!!!!!",
+    "SurveyId": "1",
+    "Comments": "",
+    "Enabled": "1",
+    "Sequence": "",
+    "UpdatedBy": "1",
+    "Options":
+        [
+            {
+                "Options": "Hey there !!!!!!! 1",
+                "Sequence": "test",
+                "Enabled": "1",
+                "CreatedBy": "1",
+                "UpdatedBy": "1"
+            },
+            {
+                "Options": "Hey there !!!!!!! 2",
+                "Sequence": "Sequence3",
+                "Enabled": "1",
+                "CreatedBy": "1",
+                "UpdatedBy": "1"
+            }
+        ]
+};
+
+const option = {
+    "Options": "Hey there !!!!!!! 1",
+    "Sequence": "test",
+    "Enabled": "1",
+    "CreatedBy": "1",
+    "UpdatedBy": "1"
+};
 
 
 export const fetchServey = (id) => {
@@ -79,3 +138,30 @@ export const fetchServey = (id) => {
         // })
     }
 }
+
+export const onAddNewQuestion = () => {
+    return dispatch => {
+        dispatch(action.onAddNewQuestion(question));
+    }
+};
+
+export const onAddNewQuestionOption = (questionIndex) => {
+    return dispatch => {
+        dispatch(action.onAddNewQuestionOption({
+            questionIndex, 
+            option
+        }));
+    }
+};
+
+export const onChangeQuestion = (data) => {
+    return dispatch => {
+        dispatch(action.onChangeQuestion(data));
+    }
+};
+
+export const onChangeQuestionOption = (data) => {
+    return dispatch => {
+        dispatch(action.onChangeQuestionOption(data));
+    }
+};

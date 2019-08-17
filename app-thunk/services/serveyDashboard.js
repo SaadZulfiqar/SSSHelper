@@ -160,3 +160,8 @@ export const onChangeQuestion = (data) => {
     }
 };
 
+export const onChangeQuestionOption = (data) => {
+    return dispatch => {
+        dispatch(action.onChangeQuestionOption(data));
+    }
+};

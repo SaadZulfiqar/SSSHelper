@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_SERVEY_PENDING, FETCH_SERVEY_SUCCESS, FETCH_SERVEY_ERROR, ON_ADD_NEW_QUESTION, ON_ADD_NEW_QUESTION_OPTION, ON_CHANGE_QUESTION } from '../actions/serveyDashboard';
+import { FETCH_SERVEY_PENDING, FETCH_SERVEY_SUCCESS, FETCH_SERVEY_ERROR, ON_ADD_NEW_QUESTION, ON_ADD_NEW_QUESTION_OPTION, ON_CHANGE_QUESTION, ON_CHANGE_QUESTION_OPTION } from '../actions/serveyDashboard';
 
 const initialState = {
     pending: false,
@@ -45,9 +45,15 @@ export function serveyDashboardReducer(state = initialState, action) {
                 survey: survey
             }
         case ON_CHANGE_QUESTION:
-            console.log(action);
             survey = _.cloneDeep(state.survey);
             survey.Questions[action.payload.questionIndex].Question = action.payload.value;
+            return {
+                ...state,
+                survey: survey
+            }
+        case ON_CHANGE_QUESTION_OPTION:
+            survey = _.cloneDeep(state.survey);
+            survey.Questions[action.payload.questionIndex].Options[action.payload.optionIndex].Options = action.payload.value;
             return {
                 ...state,
                 survey: survey

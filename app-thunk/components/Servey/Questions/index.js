@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MaterialQuestions = (data) => {
-    const { questionIndex, question, onAddNewQuestionOption, onChangeQuestion } = data;
+    const { questionIndex, question, onAddNewQuestionOption, onChangeQuestion, onChangeQuestionOption } = data;
     const classes = useStyles();
     return (
         <div className="admin-survey-questions-card-wrapper">
@@ -44,7 +44,7 @@ const MaterialQuestions = (data) => {
                     {question.Options && question.Options.map((option, optionIndex) => {
                         return (
                             <div key={optionIndex}>
-                                <TextField id={`${optionIndex}-option-name`} label={`Option ${optionIndex + 1}.`} className={classes.textField} value={option.Options} onChange={() => { }} margin="normal" fullWidth InputLabelProps={{ shrink: true }} />
+                                <TextField id={`${optionIndex}-option-name`} label={`Option ${optionIndex + 1}.`} className={classes.textField} value={option.Options} onChange={(event) => { onChangeQuestionOption(event, questionIndex, optionIndex) }} margin="normal" fullWidth InputLabelProps={{ shrink: true }} />
                             </div>
                         )
                     })}
@@ -74,7 +74,8 @@ export default class QuestionsComponent extends Component {
         Questions: PropTypes.array,
         onAddNewQuestion: PropTypes.func,
         onAddNewQuestionOption: PropTypes.func,
-        onChangeQuestion: PropTypes.func
+        onChangeQuestion: PropTypes.func,
+        onChangeQuestionOption: PropTypes.func
     };
 
     constructor(props) {
@@ -94,6 +95,11 @@ export default class QuestionsComponent extends Component {
         this.props.onChangeQuestion({ questionIndex, value });
     }
 
+    onChangeQuestionOption = (event, questionIndex, optionIndex) => {
+        const value = event.target.value;
+        this.props.onChangeQuestionOption({ questionIndex, optionIndex, value });
+    }
+
     render() {
         const { Questions } = this.props;
         return (
@@ -103,7 +109,13 @@ export default class QuestionsComponent extends Component {
                 </div>
                 <div className="admin-survey-questions-list">
                     <form>
-                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions key={questionIndex} questionIndex={questionIndex} question={question} onAddNewQuestionOption={this.onAddNewQuestionOption} onChangeQuestion={this.onChangeQuestion} /> })}
+                        {Questions && Questions.map((question, questionIndex) => { return <MaterialQuestions 
+                            key={questionIndex} 
+                            questionIndex={questionIndex} 
+                            question={question} 
+                            onAddNewQuestionOption={this.onAddNewQuestionOption} 
+                            onChangeQuestion={this.onChangeQuestion}
+                            onChangeQuestionOption={this.onChangeQuestionOption} /> })}
                     </form>
                 </div>
             </div>

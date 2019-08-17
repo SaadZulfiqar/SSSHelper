@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchServey, onAddNewQuestion, onAddNewQuestionOption, onChangeQuestion } from '../../../services/serveyDashboard';
+import { fetchServey, onAddNewQuestion, onAddNewQuestionOption, onChangeQuestion, onChangeQuestionOption } from '../../../services/serveyDashboard';
 import { getServeyPending, getServey, getServeyError } from '../../../reducers/serveyDashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -49,7 +49,7 @@ function a11yProps(index) {
 
 const MaterialTabs = (data) => {
     const classes = useStyles();
-    const { survey, tab, onTabChange, onAddNewQuestion, onAddNewQuestionOption, onChangeQuestion } = data;
+    const { survey, tab, onTabChange, onAddNewQuestion, onAddNewQuestionOption, onChangeQuestion, onChangeQuestionOption } = data;
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -59,7 +59,12 @@ const MaterialTabs = (data) => {
                 </Tabs>
             </AppBar>
             <TabPanel value={tab} index={0}>
-                <QuestionsComponent Questions={survey.Questions} onAddNewQuestion={onAddNewQuestion} onAddNewQuestionOption={onAddNewQuestionOption} onChangeQuestion={onChangeQuestion} />
+                <QuestionsComponent 
+                    Questions={survey.Questions} 
+                    onAddNewQuestion={onAddNewQuestion} 
+                    onAddNewQuestionOption={onAddNewQuestionOption} 
+                    onChangeQuestion={onChangeQuestion} 
+                    onChangeQuestionOption={onChangeQuestionOption} />
             </TabPanel>
             <TabPanel value={tab} index={1}>
                 <ConfigurationsComponent />
@@ -74,6 +79,7 @@ class DashboardComponent extends Component {
         onAddNewQuestion: PropTypes.func,
         onAddNewQuestionOption: PropTypes.func,
         onChangeQuestion: PropTypes.func,
+        onChangeQuestionOption: PropTypes.func,
         error: PropTypes.string,
         servey: PropTypes.object,
         pending: PropTypes.bool
@@ -94,11 +100,19 @@ class DashboardComponent extends Component {
     onAddNewQuestionOption = (questionIndex) => this.props.onAddNewQuestionOption(questionIndex);
 
     onChangeQuestion = (data) => this.props.onChangeQuestion(data);
+    onChangeQuestionOption = (data) => this.props.onChangeQuestionOption(data);
 
     render() {
         return (
             <div className="admin-servey-dashboard">
-                <MaterialTabs {...this.props} {...this.state} onTabChange={this.onTabChange} onAddNewQuestion={this.onAddNewQuestion} onAddNewQuestionOption={this.onAddNewQuestionOption} onChangeQuestion={this.onChangeQuestion} />
+                <MaterialTabs 
+                    {...this.props} 
+                    {...this.state} 
+                    onTabChange={this.onTabChange} 
+                    onAddNewQuestion={this.onAddNewQuestion} 
+                    onAddNewQuestionOption={this.onAddNewQuestionOption} 
+                    onChangeQuestion={this.onChangeQuestion}
+                    onChangeQuestionOption={this.onChangeQuestionOption} />
             </div>
         );
     }
@@ -115,7 +129,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     fetchServey: fetchServey,
     onAddNewQuestion: onAddNewQuestion,
     onAddNewQuestionOption: onAddNewQuestionOption,
-    onChangeQuestion: onChangeQuestion
+    onChangeQuestion: onChangeQuestion,
+    onChangeQuestionOption: onChangeQuestionOption
 }, dispatch)
 
 export default connect(

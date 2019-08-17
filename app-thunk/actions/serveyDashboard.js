@@ -5,6 +5,7 @@ export const FETCH_SERVEY_ERROR = 'FETCH_SERVEY_ERROR';
 export const ON_ADD_NEW_QUESTION = 'ON_ADD_NEW_QUESTION';
 export const ON_ADD_NEW_QUESTION_OPTION = 'ON_ADD_NEW_QUESTION_OPTION';
 export const ON_CHANGE_QUESTION = 'ON_CHANGE_QUESTION';
+export const ON_CHANGE_QUESTION_OPTION = 'ON_CHANGE_QUESTION_OPTION';
 
 
 export const fetchServeyPending = () => {
@@ -44,6 +45,13 @@ export const onAddNewQuestionOption = (data) => {
 export const onChangeQuestion = (data) => {
     return {
         type: ON_CHANGE_QUESTION,
+        payload: data
+    }
+};
+
+export const onChangeQuestionOption = (data) => {
+    return {
+        type: ON_CHANGE_QUESTION_OPTION,
         payload: data
     }
 };
